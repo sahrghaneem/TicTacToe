@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
   box-sizing:border-box ;
+  background: rgba(199, 175, 221, 0.514);
+
 }
 body {
   padding: 1rem;
@@ -20,7 +22,7 @@ grid-template: repeat(3,1fr)/repeat(3,1fr);
 }
 
 .Square{
-  background: beige;
+  background: rgb(245, 237, 247);
   border: 1px solid gray;
   font-size: 5rem;
 }
