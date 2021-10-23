@@ -70,7 +70,7 @@ class XOGame extends React.Component {
                     <div className="history"> 
                     {this.state.history.map((element,index)=>{
                         return (
-                            <button onClick={()=> this.time(index)}>step-{index+1}</button>
+                            <button className="button" onClick={()=> this.time(index)}>step-{index+1}</button>
                         )
                     })}
                     </div>

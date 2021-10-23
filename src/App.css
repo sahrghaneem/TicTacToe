@@ -14,7 +14,7 @@ body {
 .container{
 width: 70vw;
 height:70vh;
-background-color: aqua;
+background-color: rgb(61, 100, 100);
 display: grid;
 grid-template: repeat(3,1fr)/repeat(3,1fr);
 }
@@ -39,8 +39,10 @@ outline: none;
   justify-content: space-between;
 }
 
-.button{
-  display: flex;
-  justify-content: space-between;
-
+.button {
+  text-decoration: underline ;
+  display:flex;
+  font-size: 16px;
 }
+
+
