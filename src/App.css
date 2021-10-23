@@ -38,3 +38,9 @@ outline: none;
   display: flex;
   justify-content: space-between;
 }
+
+.button{
+  display: flex;
+  justify-content: space-between;
+
+}

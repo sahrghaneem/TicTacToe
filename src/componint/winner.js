@@ -1,74 +1,74 @@
-import React from 'react';
-import BoardGame from "./boardgame"
+// import React from 'react';
+// import BoardGame from "./boardgame"
 
 
 
-class XOGame extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+// class XOGame extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
             
-           userchoice: true,
-           newStep: 0,
-           listSteps:[
-            {squares:Array(9).fill('')}
-           ]
+//            userchoice: true,
+//            newStep: 0,
+//            listSteps:[
+//             {squares:Array(9).fill('')}
+//            ]
 
-        }
-    }
+//         }
+//     }
 
-     clickClick  = (i)=>{
-        const listSteps2= this.state.listSteps.slice(0, this.state.newStep+1);
-        const currentSteps= listSteps2[listSteps2.length-1];
-        const cleanArr = currentSteps.squares.slice();
+//      clickClick  = (i)=>{
+//         const listSteps2= this.state.listSteps.slice(0, this.state.newStep+1);
+//         const currentSteps= listSteps2[listSteps2.length-1];
+//         const cleanArr = currentSteps.squares.slice();
         
-      //  const winner = CalculateWinner(squares);
-        if (cleanArr[i]) {
-            return;
-        }
-        if(cleanArr[i]) return;
-        cleanArr[i]= this.state.userchoice ? "❌" : "⭕" ;
-        this.setState({
-            listSteps:listSteps2.concat({
-            listSteps:cleanArr
-        }),
+//       //  const winner = CalculateWinner(squares);
+//         if (cleanArr[i]) {
+//             return;
+//         }
+//         if(cleanArr[i]) return;
+//         cleanArr[i]= this.state.userchoice ? "❌" : "⭕" ;
+//         this.setState({
+//             listSteps:listSteps2.concat({
+//             listSteps:cleanArr
+//         }),
        
-        userchoice:!this.state.userchoice,
-        newStep:listSteps2.length
+//         userchoice:!this.state.userchoice,
+//         newStep:listSteps2.length
         
-    });
-    }
+//     });
+//     }
     
 
-    render(){
-        const listSteps = this.state.listSteps;
-        const currentSteps = listSteps[this.state.newStep];
+//     render(){
+//         const listSteps = this.state.listSteps;
+//         const currentSteps = listSteps[this.state.newStep];
 
-      //  const winner = CalculateWinner(currentSteps.squares);
+//       //  const winner = CalculateWinner(currentSteps.squares);
 
-        // let status;
-        // if (winner) {
-        //     status = 'Winner is ' + winner;
-        // } else {
-        //     status = 'Next Player is ' + (this.state.userchoice ? 'X' : 'O');
-        // }
+//         // let status;
+//         // if (winner) {
+//         //     status = 'Winner is ' + winner;
+//         // } else {
+//         //     status = 'Next Player is ' + (this.state.userchoice ? 'X' : 'O');
+//         // }
 
-        return(
-            <div className="XOGame">
-                <h1> Tic Tac Toe Game</h1>
-                <BoardGame Sq={this.state.listSteps[0].squares} method={this.clickClick }/>
-                {console.log(this.state.listSteps[0])};
-                <div className="NewStep">
-                    <div className="steps"><button onClick={()=> {this.setState({listSteps: Array(9).fill('') , userchoice : true} )}} >New Game</button></div>
-                    <div>User : {this.state.userchoice ? "❌" : "⭕" } </div>
-                </div>
+//         return(
+//             <div className="XOGame">
+//                 <h1> Tic Tac Toe Game</h1>
+//                 <BoardGame Sq={this.state.listSteps[0].squares} method={this.clickClick }/>
+//                 {console.log(this.state.listSteps[0])};
+//                 <div className="NewStep">
+//                     <div className="steps"><button onClick={()=> {this.setState({listSteps: Array(9).fill('') , userchoice : true} )}} >New Game</button></div>
+//                     <div>User : {this.state.userchoice ? "❌" : "⭕" } </div>
+//                 </div>
 
-            </div>
+//             </div>
 
-        );
-    }
-}
-export default XOGame;
+//         );
+//     }
+// }
+// export default XOGame;
 
 // function CalculateWinner(squares) {
 //     const lines = [

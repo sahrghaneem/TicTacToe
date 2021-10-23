@@ -1,27 +1,31 @@
 import React from 'react';
 import BoardGame from "./boardgame"
 
-
 class XOGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
            squares:Array(9).fill(''),
            userchoice: true,
-           newStep: 0
-
+           newStep: 0,
+           history:[]
         }
     }
 
      clickClick  = (i)=>{
         const winPlayer = this.CalculateWinner(this.state.squares);
-
         const cleanArr = [...this.state.squares];
         if(winPlayer || cleanArr[i]) return;
         cleanArr[i]= this.state.userchoice ? "❌" : "⭕" ;
-        this.setState({squares:cleanArr})
-        this.setState({userchoice:!this.state.userchoice})
+        this.setState({
+            squares:cleanArr,
+            userchoice:!this.state.userchoice,
+            history:[...this.state.history , this.state]
+        })
+    }
 
+    time=(stepIndex)=>{
+        this.setState(this.state.history[stepIndex])
     }
 
      CalculateWinner(squares) {
@@ -47,12 +51,10 @@ class XOGame extends React.Component {
     }
 
     render(){
-         const winPlayer= this.CalculateWinner(this.state.squares);
-        
+        const winPlayer= this.CalculateWinner(this.state.squares);
         let status;
         if (!winPlayer) {
             status = 'Next Player is ' + (this.state.userchoice ? 'X' : 'O')
-
         } else {
             status = 'Winner is ' + winPlayer;
         }
@@ -65,9 +67,15 @@ class XOGame extends React.Component {
                 <div className="squaresStep">
                     <div className="steps"><button onClick={()=> {this.setState({squares: Array(9).fill('') , userchoice : true} )}} >New Game</button></div>
                     <div> {winPlayer ? 'winner'+ winPlayer : 'Player:' + (this.state.userchoice ? "❌" : "⭕" ) }</div>
+                    <div className="history"> 
+                    {this.state.history.map((element,index)=>{
+                        return (
+                            <button onClick={()=> this.time(index)}>step-{index+1}</button>
+                        )
+                    })}
+                    </div>
                 </div>
             </div>
-
         )
     }
 }
