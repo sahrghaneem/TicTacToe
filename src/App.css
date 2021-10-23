@@ -1,0 +1,40 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing:border-box ;
+}
+body {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.container{
+width: 70vw;
+height:70vh;
+background-color: aqua;
+display: grid;
+grid-template: repeat(3,1fr)/repeat(3,1fr);
+}
+
+.Square{
+  background: beige;
+  border: 1px solid gray;
+  font-size: 5rem;
+}
+.Square:focus{
+outline: none;
+}
+
+.row:after{
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.squaresStep{
+  display: flex;
+  justify-content: space-between;
+}
