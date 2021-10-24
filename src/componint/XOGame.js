@@ -52,12 +52,6 @@ class XOGame extends React.Component {
 
     render(){
         const winPlayer= this.CalculateWinner(this.state.squares);
-        let status;
-        if (!winPlayer) {
-            status = 'Next Player is ' + (this.state.userchoice ? 'X' : 'O')
-        } else {
-            status = 'Winner is ' + winPlayer;
-        }
 
         return(
             <div className="XOGame">
@@ -71,6 +65,7 @@ class XOGame extends React.Component {
                     {this.state.history.map((element,index)=>{
                         return (
                             <button className="button" onClick={()=> this.time(index)}>step-{index+1}</button>
+
                         )
                     })}
                     </div>
